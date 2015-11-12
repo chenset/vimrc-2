@@ -433,3 +433,22 @@ endfunction
 " Modify for myself
 set nu
 imap jk <Esc>
+
+func CompileRun()
+    exec "w" 
+
+    "C
+    if &filetype == "c"
+        exec "!gcc -Wl,--nable-auto-import % -g -o %<.exe"
+        exec "!%<.exe"
+
+    "c++
+    elseif &filetype == "cpp"
+        exec "!g++ -Wl,--enable-auto-import  % -g -o %<.exe"
+        exec "!%<.exe"
+
+    endif
+
+endfun
+
+map <F5> :call CompileRun()<CR>
