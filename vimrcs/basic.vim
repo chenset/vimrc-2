@@ -429,3 +429,7 @@ function! <SID>BufcloseCloseIt()
      execute("bdelete! ".l:currentBufNum)
    endif
 endfunction
+
+" Modify for myself
+set nu
+imap jk <Esc>
